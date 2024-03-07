@@ -10,10 +10,9 @@ module.exports = configure((/* ctx */) => ({
     errors: true,
   },
   preFetch: true,
-  boot: ['unocss', 'vueDaumPostcode', 'bus', 'firebase'],
+  boot: ['unocss'],
   css: ['app.scss'],
   extras: [
-    'roboto-font', // optional, you are not bound to it
     'material-icons',
     'material-symbols-outlined',
     'fontawesome-v6',
@@ -29,7 +28,7 @@ module.exports = configure((/* ctx */) => ({
       '~': resolve(__dirname, '/node_modules'),
     },
     vueRouterMode: 'history', // available values: 'hash', 'history'
-    distDir: join(__dirname, '..', './backend/front'), // 빌드 파일 설치 경로
+    // distDir: join(__dirname, '..', './backend/front'), // 빌드 파일 설치 경로
     rollupOptions: {
       output: {
         // 빌드 파일 이름 설정 (프로젝트 버전과 함께 export)

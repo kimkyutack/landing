@@ -1,4 +1,3 @@
-// app global css in SCSS form
 @import 'tailwindcss/tailwind.css';
 @import 'vue-cal/dist/vuecal.css';
 @import './transition.scss';
@@ -29,17 +28,119 @@ $breakpoints: (
   }
 }
 
-html {
-  font-size: 12px;
-  @include respond-to('desktop-large') {
-    font-size: 14px;
-  }
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  /* color-scheme: light dark; */
+  /* color: rgba(255, 255, 255, 0.87); */
+  /* background-color: #242424; */
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
 }
 
 body {
-  font-family: 'Noto Sans KR', sans-serif;
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
 }
 
+h1 {
+  display: block;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+  font-size: 3.2em;
+  line-height: 1.1;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+}
+
+p {
+  margin: 0 0 16px;
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.card {
+  padding: 2em;
+}
+.flex-2 {
+  flex: 2;
+}
+.flex-3 {
+  flex: 3;
+}
+.flex-4 {
+  flex: 4;
+}
+.flex-5 {
+  flex: 5;
+}
+.flex-6 {
+  flex: 6;
+}
+
+#q-app {
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
 // input
 .q-input,
 .q-field {
@@ -53,6 +154,11 @@ body {
   }
   .q-field__control,
   .q-field__native {
+    background: white;
+    text-align: center;
+    border-width: 0px !important;
+    border-style: none;
+    border-radius: 0.5rem !important;
     height: 3.71rem;
     min-height: auto;
   }
@@ -67,6 +173,7 @@ body {
 
 // button
 .q-btn {
+  border-radius: 0.5rem !important;
   &.q-btn--round {
     min-width: auto;
     min-height: auto;

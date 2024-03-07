@@ -1,7 +1,7 @@
+<script setup lang="ts"></script>
+
 <template>
-  <router-view />
+  <div class="w-4/12">
+    <router-view />
+  </div>
 </template>
-
-<script setup lang="ts">
-
-</script>
