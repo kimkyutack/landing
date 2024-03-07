@@ -1,0 +1,34 @@
+.router-tab-zoom {
+  &-enter-active,
+  &-leave-active {
+    transition: all 0.4s;
+  }
+
+  &-enter,
+  &-leave-to {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+.router-page-swap {
+  $trans: 30px;
+
+  &-enter-active,
+  &-leave-active {
+    transition: all 0.5s;
+  }
+
+  &-enter,
+  &-leave-to {
+    opacity: 0;
+  }
+
+  &-enter {
+    transform: translateX(-$trans);
+  }
+
+  &-leave-to {
+    transform: translateX($trans);
+  }
+}
