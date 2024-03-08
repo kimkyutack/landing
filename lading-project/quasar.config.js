@@ -1,4 +1,5 @@
 const { configure } = require('quasar/wrappers');
+const phpPlugin = require('vite-plugin-php');
 const { resolve, join } = require('path');
 
 const packageVersion = process.env.npm_package_version; // 현재 프로젝트 버전 가져오기
@@ -27,7 +28,7 @@ module.exports = configure((/* ctx */) => ({
       '@': resolve(__dirname, '/src'),
       '~': resolve(__dirname, '/node_modules'),
     },
-    vueRouterMode: 'history', // available values: 'hash', 'history'
+    vueRouterMode: 'hash', // available values: 'hash', 'history'
     // distDir: join(__dirname, '..', './backend/front'), // 빌드 파일 설치 경로
     rollupOptions: {
       output: {
@@ -37,11 +38,28 @@ module.exports = configure((/* ctx */) => ({
         assetFileNames: `assets/[name]-${packageVersion}-.min.[ext]`,
       },
     },
-    vitePlugins: [['unocss/vite'], {}],
+    vitePlugins: [
+      ['unocss/vite', {}],
+      [
+        'vite-plugin-php',
+        {
+          entry: ['index.php'],
+          plugins: [phpPlugin()],
+        },
+      ],
+    ],
   },
   devServer: {
     open: true, // opens browser window automatically
     port: 8001,
+    historyApiFallback: {
+      rewrites: [
+        {
+          from: /^\/$/,
+          to: '/index.php',
+        },
+      ],
+    },
   },
   framework: {
     config: {},
@@ -72,7 +90,7 @@ module.exports = configure((/* ctx */) => ({
     bundler: 'packager', // 'packager' or 'builder'
     packager: {},
     builder: {
-      appId: 'nest-quasar-bolilerplate',
+      appId: 'quasar-bolilerplate',
     },
   },
   bex: {
